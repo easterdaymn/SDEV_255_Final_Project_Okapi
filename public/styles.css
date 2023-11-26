@@ -1,4 +1,4 @@
-/* Inside styles.css */
+/* Reset default styles and set a base font for the entire body */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
@@ -7,24 +7,27 @@ body {
     padding: 0;
 }
 
+/* Style for the navigation bar */
 nav {
     background-color: #007bff;
     padding: 10px;
 }
 
+/* Remove default list styles for unordered lists */
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
+/* Style for list items within the navigation bar */
 li {
     display: inline;
     margin-right: 20px;
 }
 
+/* Style for the main heading of the page */
 h1 {
     color: #007bff;
 }
 
-/* Add more styles as needed */
