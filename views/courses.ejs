@@ -2,12 +2,40 @@
     <%- include('./partials/head.ejs') %> 
 
 <body>
- 
+
     <%- include('./partials/nav.ejs') %> 
 
-    <div>
-        <h1>Our Courses</h1>
-    
+    <div class="container main-container" style="padding-top: 80px;">
+
+        <h1 class="mb-4">Our Courses</h1>
+
+        <!-- Course Card 1 -->
+        <div class="custom-card bg-light mb-6">
+            <div class="custom-card-body">
+                <h5 class="custom-card-title">Introduction to Computer Science</h5>
+                <p class="custom-card-text">Computer Science | 3 Credits</p>
+                <p class="custom-card-text">This course provides an overview of fundamental concepts in computer science, including programming, algorithms, and data structures. Students will gain hands-on experience in coding and problem-solving.</p>
+            </div>
+        </div>
+
+        <!-- Course Card 2 -->
+        <div class="custom-card bg-light mb-6">
+            <div class="custom-card-body">
+                <h5 class="custom-card-title">Principles of Marketing</h5>
+                <p class="custom-card-text">Business | 4 Credits</p>
+                <p class="custom-card-text">This course explores the basic principles and strategies of marketing, covering topics such as market research, consumer behavior, product development, and promotional techniques. Students will develop a comprehensive understanding of marketing in various industries.</p>
+            </div>
+        </div>
+
+        <!-- Course Card 3 -->
+        <div class="custom-card bg-light mb-6">
+            <div class="custom-card-body">
+                <h5 class="custom-card-title">Introduction to Psychology</h5>
+                <p class="custom-card-text">Psychology | 3 Credits</p>
+                <p class="custom-card-text">This introductory psychology course covers the fundamental principles of human behavior and mental processes. Topics include cognitive psychology, social psychology, abnormal psychology, and research methods.</p>
+            </div>
+        </div>
+
     </div>
 
     <%- include('./partials/footer.ejs') %>
