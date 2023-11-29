@@ -1,15 +1,59 @@
+<!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs') %> 
+
+<%- include('./partials/head.ejs') %>
+
 <body>
-    
-    <%- include('./partials/nav.ejs') %> 
-    
-    <div>
-        <h1>Welcome to Your College Course Management System!</h1>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="container main-container">
+        <h1>Welcome to Okapi University!</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim deserunt nihil iusto ratione eligendi similique fugiat error libero quas. Numquam, accusamus ipsum alias voluptas modi aliquam tempora neque quae debitis.</p>
+
+        <h2>Our Mission</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam vel dolor blanditiis nemo a recusandae pariatur earum deleniti ipsum eligendi nisi neque distinctio optio id quas illo fugit, eum dolore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate voluptates quisquam delectus? Dolor corporis ex veniam. Repellat repudiandae, tempora officia eveniet nobis quam possimus quo harum, nesciunt dicta aliquam corrupti.</p>
+
+        <h2>Testimonials</h2>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card testimonial-card">
+                    <div class="card-body text-center">
+                        <img src="https://randomuser.me/api/portraits/men/11.jpg" class="rounded-circle mb-3" alt="John Doe">
+                        <h5 class="card-title">John Doe</h5>
+                        <p class="card-text">"Okapi University has been instrumental in shaping my academic journey. The dedicated faculty and comprehensive courses have provided me with a solid foundation for success."</p>
+                    </div>
+                </div>
+            </div>
         
+            <div class="col-md-4">
+                <div class="card testimonial-card">
+                    <div class="card-body text-center">
+                        <img src="https://randomuser.me/api/portraits/women/2.jpg" class="rounded-circle mb-3" alt="Jane Smith">
+                        <h5 class="card-title">Jane Smith</h5>
+                        <p class="card-text">"I am grateful for the diverse learning environment at Okapi University. The hands-on approach to education and the supportive community have enriched my college experience."</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-4">
+                <div class="card testimonial-card">
+                    <div class="card-body text-center">
+                        <img src="https://randomuser.me/api/portraits/men/7.jpg" class="rounded-circle mb-3" alt="Bob Johnson">
+                        <h5 class="card-title">Bob Johnson</h5>
+                        <p class="card-text">"Choosing Okapi University was the best decision I made for my education. The flexible programs and emphasis on practical skills have prepared me for the challenges in my field."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
     </div>
+
 
     <%- include('./partials/footer.ejs') %>
 
 </body>
+
 </html>
