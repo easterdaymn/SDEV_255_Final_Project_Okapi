@@ -1,16 +1,22 @@
 /* Reset default styles and set a base font for the entire body */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
+    background-color: #002f5b; /* Darker blue background color */
+    color: #fff; /* White text color for better visibility */
+    margin: 20px; /* Add margin around everything */
     padding: 0;
 }
 
 /* Style for the navigation bar */
 nav {
-    background-color: #007bff;
-    padding: 10px;
+    background-color: #00498e; /* Darker blue background color for the navigation bar */
+    color: #fff; /* White text color for the navigation items */
+    padding: 15px; /* Increased padding for better spacing */
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 /* Remove default list styles for unordered lists */
@@ -24,10 +30,156 @@ ul {
 li {
     display: inline;
     margin-right: 20px;
+    font-weight: bold; /* Make navigation items bold for better visibility */
 }
 
 /* Style for the main heading of the page */
 h1 {
-    color: #007bff;
+    color: #fafbfc; /* Color for the main heading */
+    margin-top: 20px; /* Add some margin to the top of the heading */
+    margin-bottom: 70px;
 }
 
+/* Style for the paragraphs */
+p {
+    line-height: 1.6; /* Increase line height for better readability */
+}
+
+/* Style for the Bootstrap cards */
+.card {
+    background-color: #0072c6; /* Lighter blue background color for the cards */
+    color: #fff; /* White text color for the card content */
+    border: 1px solid #002f5b; /* Darker blue border color for the cards */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    margin-bottom: 20px;
+    margin-right: 15px;
+    padding: 20px; /* Add padding to the card body */
+}
+
+.card-title {
+    color: #fff; /* White color for card titles */
+    font-weight: bold;
+}
+
+/* Additional styles for card content if needed */
+.card-body {
+    text-align: center; 
+}
+
+/* Ensure cards are side by side */
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Add padding to the top of the main content */
+.main-container {
+    padding-top: 70px; /* Adjust this value based on the height of your navigation bar */
+    text-align: center;
+}
+
+/* Add space between courses and add a border */
+.custom-card {
+    margin-bottom: 70px;
+    border: 1px solid #00498e; /* Dark blue border color */
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+/* Increase font size for custom card titles */
+.custom-card-title {
+    font-size: 20px; /* Adjust the size as needed */
+    font-weight: bold; /* Optional: Make the titles bold */
+}
+
+/* Style for the Bootstrap cards in the testimonials section */
+.testimonial-card {
+    background-color: #00498e; /* Darker blue background color for the testimonial cards */
+    color: #fff; /* White text color for the testimonial card content */
+    border: 1px solid #002f5b; /* Darker blue border color for the testimonial cards */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    margin-bottom: 20px; /* Margin at the bottom of each card */
+    padding: 20px; /* Add padding to the card body */
+}
+
+.testimonial-card img {
+    max-width: 100px; /* Limit the maximum width of the images */
+    border-radius: 50%; /* Make the images circular */
+}
+
+.testimonial-card h5 {
+    color: #fff; /* White color for card titles in the testimonials section */
+    margin-bottom: 10px; /* Margin at the bottom of the title */
+}
+
+/* Style for the footer */
+.footer {
+    text-align: center;
+    padding: 20px; /* Add padding for better spacing */
+    background-color: #002f5b; /* Darker blue background color for the footer */
+    color: #fff; /* White text color for better visibility */
+}
+
+/* Style for buttons */
+.btn {
+    background-color: #ffd700; /* Yellow background color for buttons */
+    color: #002f5b; /* Dark blue text color for buttons */
+    padding: 10px 20px; /* Adjust padding for better button size */
+    border: none; /* Remove the border */
+    border-radius: 5px; /* Add a slight border radius for a modern look */
+    cursor: pointer; /* Change cursor on hover for better user interaction */
+}
+
+/* Style for the primary button */
+.btn-primary {
+    background-color: #ffd700; /* Yellow background color for primary buttons */
+    color: #002f5b; /* Dark blue text color for primary buttons */
+}
+
+/* Style for the danger button (e.g., delete button) */
+.btn-danger {
+    background-color: #dc3545; /* Red background color for danger buttons */
+    color: #fff; /* White text color for danger buttons */
+}
+
+/* Style for the form container */
+.form-container {
+    background-color: #fff; /* White background color for the form container */
+    border-radius: 10px; /* Add rounded corners for a modern look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+    padding: 20px; /* Add padding for better spacing */
+    max-width: 600px; /* Limit the maximum width of the form container */
+    margin: 0 auto; /* Center the form container on the page */
+}
+
+/* Style for form labels */
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #fbfbfc; /* Dark blue text color for form labels */
+}
+
+/* Style for form input fields */
+.form-input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc; /* Light gray border for form input fields */
+    border-radius: 5px; /* Add rounded corners for form input fields */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    color: #002f5b; /* Dark blue text color for form input fields */
+}
+
+/* Style for form groups to group labels and inputs together */
+.form-group {
+    margin-bottom: 16px;
+}
+
+/* Style for form buttons */
+.form-btn {
+    background-color: #ffd700; /* Yellow background color for form buttons */
+    color: #002f5b; /* Dark blue text color for form buttons */
+    padding: 12px 20px; /* Adjust padding for better button size */
+    border: none;
+    border-radius: 5px; /* Add rounded corners for form buttons */
+    cursor: pointer;
+}
