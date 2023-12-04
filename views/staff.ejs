@@ -1,14 +1,108 @@
 <html lang="en">
-    <%- include('./partials/head.ejs') %> 
+<%- include('./partials/head.ejs') %>
+
 <body>
- 
-    <%- include('./partials/nav.ejs') %>
 
-    <div>
-        <h1>Modify Courses</h1>
+  <%- include('./partials/nav.ejs') %>
+
+  <div class="container main-container" style="padding-top: 80px;">
+
+    <h1 class="mb-4">Staff Dashboard</h1>
+
+    <!-- Button to Create a New Course -->
+    <a href="/staff/courses/create" class="btn btn-success mb-3">Create New Course</a>
+
+    <!-- Display each course -->
+    <% courses.forEach(course => { %>
+    <div class="custom-card bg-light mb-6">
+      <div class="custom-card-body">
+        <h5 class="custom-card-title"><%= course.courseName %></h5>
+        <p class="custom-card-text"><%= course.subjectArea %> | <%= course.credits %> Credits</p>
+        <p class="custom-card-text"><%= course.description %></p>
+
+        <!-- Delete button -->
+        <form action="/staff/courses/delete/<%= course._id %>" method="POST" onsubmit="handleDelete('<%= course._id %>'); return false;">
+        <!-- Use the DELETE method directly without method override -->
+       <input type="hidden" name="_method" value="DELETE">
+       <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+
+        <!-- Edit form -->
+        <form id="editForm<%= course._id %>" action="/staff/courses/edit/<%= course._id %>" method="POST" onsubmit="handleEdit('<%= course._id %>'); return false;" class="form-container">
+
+          <!-- Add the hidden field to specify the HTTP method as PUT -->
+          <input type="hidden" name="_method" value="PUT">
+      
+          <div class="form-group">
+              <label for="courseName" class="form-label">Course Name:</label>
+              <input type="text" id="courseName" name="courseName" value="<%= course.courseName %>" class="form-input" required>
+          </div>
+      
+          <div class="form-group">
+              <label for="description" class="form-label">Description:</label>
+              <textarea id="description" name="description" class="form-input" required><%= course.description %></textarea>
+          </div>
+      
+          <div class="form-group">
+              <label for="subjectArea" class="form-label">Subject Area:</label>
+              <input type="text" id="subjectArea" name="subjectArea" value="<%= course.subjectArea %>" class="form-input" required>
+          </div>
+      
+          <div class="form-group">
+              <label for="credits" class="form-label">Credits:</label>
+              <input type="number" id="credits" name="credits" value="<%= course.credits %>" class="form-input" required>
+          </div>
+      
+          <button type="submit" class="form-btn">Save Changes</button>
+      </form>
+      
+
+      </div>
     </div>
+    <% }); %>
 
-    <%- include('./partials/footer.ejs') %>
+  </div>
+
+  <script>
+    function handleDelete(courseId) {
+      fetch(`/staff/courses/delete/${courseId}`, {
+        method: 'POST',
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Redirect to the specified URL
+          window.location.href = data.redirect;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  </script>
+  <script>
+    function handleEdit(courseId) {
+      console.log('Handling edit for course ID:', courseId);
+      const form = document.getElementById(`editForm${courseId}`);
+      console.log('Form:', form);
+      fetch(form.action, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(new FormData(form)),
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Edit successful. Redirecting to:', data.redirect);
+          // Redirect to the specified URL on successful edit
+          window.location.href = data.redirect;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  </script>
+
+  <%- include('./partials/footer.ejs') %>
 
 </body>
 </html>
