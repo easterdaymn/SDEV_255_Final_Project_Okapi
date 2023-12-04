@@ -1,0 +1,36 @@
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="container main-container" style="padding-top: 80px;">
+        <h1>Edit Course</h1>
+
+        <!-- Form to Edit an Existing Course -->
+        <form id="editForm<%= course._id %>" action="/staff/courses/edit/<%= course._id %>" method="POST">
+            <!-- Add the hidden field to specify the HTTP method as PUT -->
+            <input type="hidden" name="_method" value="PUT">
+          
+            <!-- Add form fields for editing a course -->
+            <label for="courseName">Course Name:</label>
+            <input type="text" id="courseName" name="courseName" value="<%= course.courseName %>" required>
+          
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required><%= course.description %></textarea>
+          
+            <label for="subjectArea">Subject Area:</label>
+            <input type="text" id="subjectArea" name="subjectArea" value="<%= course.subjectArea %>" required>
+          
+            <label for="credits">Credits:</label>
+            <input type="number" id="credits" name="credits" value="<%= course.credits %>" required>
+          
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </form>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+</body>
+</html>
