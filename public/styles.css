@@ -91,6 +91,21 @@ p {
     font-weight: bold; /* Optional: Make the titles bold */
 }
 
+/* Style for course names (links) within the custom card */
+.custom-card a {
+    display: block;
+    padding: 15px; /* Add padding for better spacing */
+    background-color: #0072c6; /* Lighter blue background color for the links */
+    color: #fff; /* White text color for the links */
+    text-decoration: none; /* Remove underlines from links */
+    border-bottom: 1px solid #00498e; /* Dark blue border color for better separation */
+}
+
+/* Style for course names (links) on hover */
+.custom-card a:hover {
+    background-color: #00498e; /* Darker blue background color on hover */
+}
+
 /* Style for the Bootstrap cards in the testimonials section */
 .testimonial-card {
     background-color: #00498e; /* Darker blue background color for the testimonial cards */
