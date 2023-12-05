@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+  <%- include('./partials/nav.ejs') %>
+
+  <div class="container main-container" style="padding-top: 80px;">
+
+    <h1 class="mb-4"><%= title %></h1>
+
+    <!-- Display individual course details -->
+    <div class="custom-card bg-light">
+      <div class="custom-card-body">
+        <h5 class="custom-card-title"><%= course.courseName %></h5>
+        <p class="custom-card-text"><%= course.subjectArea %> | <%= course.credits %> Credits</p>
+        <p class="custom-card-text"><%= course.description %></p>
+      </div>
+    </div>
+
+  </div>
+
+  <%- include('./partials/footer.ejs') %>
+
+</body>
+</html>
