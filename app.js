@@ -149,6 +149,20 @@ app.get('/staff', (req, res) => {
     });
 });
 
+// Route to render the individual course page
+app.get('/course/:id', (req, res) => {
+  const id = req.params.id;
+  console.log(`Fetching course details for ID ${id}`);
+  Course.findById(id)
+    .then(course => {
+      console.log('Course details:', course);
+      res.render('course', { course, title: `Course: ${course.courseName}` });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    });
+});
 
 // handle 404 errors
 app.use((req, res) => {
