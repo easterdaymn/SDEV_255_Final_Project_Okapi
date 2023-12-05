@@ -10,11 +10,14 @@
 
     <h1 class="mb-4"><%= title %></h1>
 
-    <!-- Display each course -->
+    <!-- Display each course with a link to its individual page -->
     <% courses.forEach(course => { %>
       <div class="custom-card bg-light mb-6">
         <div class="custom-card-body">
-          <h5 class="custom-card-title"><%= course.courseName %></h5>
+          <!-- Wrap the course details in an anchor tag with a link to the individual course page -->
+          <a href="/course/<%= course.id %>">
+            <h5 class="custom-card-title"><%= course.courseName %></h5>
+          </a>
           <p class="custom-card-text"><%= course.subjectArea %> | <%= course.credits %> Credits</p>
           <p class="custom-card-text"><%= course.description %></p>
         </div>
@@ -27,4 +30,6 @@
 
 </body>
 </html>
+
+
 
