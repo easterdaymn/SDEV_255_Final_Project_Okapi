@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head.ejs') %>
+<%- include('./partials/header.ejs') %>
 
 <body>
 
@@ -12,11 +12,11 @@
 
     <!-- Display each course with a link to its individual page -->
     <% courses.forEach(course => { %>
-      <div class="custom-card bg-light mb-6">
+      <div class="custom-card course-card mb-6">
         <div class="custom-card-body">
           <!-- Wrap the course details in an anchor tag with a link to the individual course page -->
-          <a href="/course/<%= course.id %>">
-            <h5 class="custom-card-title"><%= course.courseName %></h5>
+          <a href="/course/<%= course.id %>" class="custom-card-link">
+            <h5 class="custom-card-title course-card-title"><%= course.courseName %></h5>
           </a>
           <p class="custom-card-text"><%= course.subjectArea %> | <%= course.credits %> Credits</p>
           <p class="custom-card-text"><%= course.description %></p>
@@ -30,6 +30,5 @@
 
 </body>
 </html>
-
 
 
