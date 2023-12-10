@@ -1,11 +1,12 @@
+<!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head.ejs') %>
+<%- include('./partials/header.ejs') %>
 
 <body>
 
   <%- include('./partials/nav.ejs') %>
 
-  <div class="container main-container" style="padding-top: 80px;">
+  <div class="container main-container staff-dashboard" style="padding-top: 80px;">
 
     <h1 class="mb-4">Staff Dashboard</h1>
 
@@ -22,9 +23,9 @@
 
         <!-- Delete button -->
         <form action="/staff/courses/delete/<%= course._id %>" method="POST" onsubmit="handleDelete('<%= course._id %>'); return false;">
-        <!-- Use the DELETE method directly without method override -->
-       <input type="hidden" name="_method" value="DELETE">
-       <button type="submit" class="btn btn-danger">Delete</button>
+          <!-- Use the DELETE method directly without method override -->
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-danger">Delete</button>
         </form>
 
         <!-- Edit form -->
@@ -32,31 +33,29 @@
 
           <!-- Add the hidden field to specify the HTTP method as PUT -->
           <input type="hidden" name="_method" value="PUT">
-      
-          <div class="form-group">
-              <label for="courseName" class="form-label">Course Name:</label>
-              <input type="text" id="courseName" name="courseName" value="<%= course.courseName %>" class="form-input" required>
-          </div>
-      
-          <div class="form-group">
-              <label for="description" class="form-label">Description:</label>
-              <textarea id="description" name="description" class="form-input" required><%= course.description %></textarea>
-          </div>
-      
-          <div class="form-group">
-              <label for="subjectArea" class="form-label">Subject Area:</label>
-              <input type="text" id="subjectArea" name="subjectArea" value="<%= course.subjectArea %>" class="form-input" required>
-          </div>
-      
-          <div class="form-group">
-              <label for="credits" class="form-label">Credits:</label>
-              <input type="number" id="credits" name="credits" value="<%= course.credits %>" class="form-input" required>
-          </div>
-      
-          <button type="submit" class="form-btn">Save Changes</button>
-      </form>
-      
 
+          <div class="form-group">
+            <label for="courseName" class="form-label">Course Name:</label>
+            <input type="text" id="courseName" name="courseName" value="<%= course.courseName %>" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label for="description" class="form-label">Description:</label>
+            <textarea id="description" name="description" class="form-input" required><%= course.description %></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="subjectArea" class="form-label">Subject Area:</label>
+            <input type="text" id="subjectArea" name="subjectArea" value="<%= course.subjectArea %>" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label for="credits" class="form-label">Credits:</label>
+            <input type="number" id="credits" name="credits" value="<%= course.credits %>" class="form-input" required>
+          </div>
+
+          <button type="submit" class="form-btn">Save Changes</button>
+        </form>
       </div>
     </div>
     <% }); %>
@@ -70,6 +69,11 @@
       })
         .then(response => response.json())
         .then(data => {
+          // Display the success message
+          if (data.message) {
+            alert(data.message);
+          }
+  
           // Redirect to the specified URL
           window.location.href = data.redirect;
         })
@@ -106,3 +110,4 @@
 
 </body>
 </html>
+
