@@ -1,200 +1,413 @@
-/* Reset default styles and set a base font for the entire body */
+/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #002f5b; /* Darker blue background color */
-    color: #fff; /* White text color for better visibility */
-    margin: 20px; /* Add margin around everything */
-    padding: 0;
+    background-color: #002f5b;
+    color: #fff;
+    margin: 20px;
+    padding: 20px;
 }
 
-/* Style for the navigation bar */
+h1, h2, h3 {
+    color: #ffd700;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+/* Navigation Styles */
 nav {
-    background-color: #00498e; /* Darker blue background color for the navigation bar */
-    color: #fff; /* White text color for the navigation items */
-    padding: 15px; /* Increased padding for better spacing */
+    background-color: #00498e;
+    color: #6e6e6e;
+    padding: 15px;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Remove default list styles for unordered lists */
-ul {
+nav h1 {
+    margin: 0;
+}
+
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
 }
 
-/* Style for list items within the navigation bar */
-li {
-    display: inline;
+nav li {
     margin-right: 20px;
-    font-weight: bold; /* Make navigation items bold for better visibility */
-}
-
-/* Style for the main heading of the page */
-h1 {
-    color: #fafbfc; /* Color for the main heading */
-    margin-top: 20px; /* Add some margin to the top of the heading */
-    margin-bottom: 70px;
-}
-
-/* Style for the paragraphs */
-p {
-    line-height: 1.6; /* Increase line height for better readability */
-}
-
-/* Style for the Bootstrap cards */
-.card {
-    background-color: #0072c6; /* Lighter blue background color for the cards */
-    color: #fff; /* White text color for the card content */
-    border: 1px solid #002f5b; /* Darker blue border color for the cards */
-    border-radius: 10px; /* Rounded corners for a modern look */
-    margin-bottom: 20px;
-    margin-right: 15px;
-    padding: 20px; /* Add padding to the card body */
-}
-
-.card-title {
-    color: #fff; /* White color for card titles */
     font-weight: bold;
 }
 
-/* Additional styles for card content if needed */
-.card-body {
-    text-align: center; 
+nav a {
+    color: #fff;
+    text-decoration: none;
 }
 
-/* Ensure cards are side by side */
-.row {
-    display: flex;
-    justify-content: space-between;
+nav a.btn {
+    background-color: #ffd700;
+    color: #002f5b;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Add padding to the top of the main content */
-.main-container {
-    padding-top: 70px; /* Adjust this value based on the height of your navigation bar */
-    text-align: center;
+nav a.btn:hover {
+    background-color: #ffc107;
 }
 
-/* Add space between courses and add a border */
+/* Card Styles */
+.card, .testimonial-card, .custom-card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #0072c6;
+    color: #4982d8;
+    border: 1px solid #002f5b;
+}
+
 .custom-card {
-    margin-bottom: 70px;
-    border: 1px solid #00498e; /* Dark blue border color */
-    border-radius: 10px; /* Optional: Add rounded corners */
+    border: 1px solid #00498e;
 }
 
-/* Increase font size for custom card titles */
-.custom-card-title {
-    font-size: 20px; /* Adjust the size as needed */
-    font-weight: bold; /* Optional: Make the titles bold */
-}
-
-/* Style for course names (links) within the custom card */
-.custom-card a {
-    display: block;
-    padding: 15px; /* Add padding for better spacing */
-    background-color: #0072c6; /* Lighter blue background color for the links */
-    color: #fff; /* White text color for the links */
-    text-decoration: none; /* Remove underlines from links */
-    border-bottom: 1px solid #00498e; /* Dark blue border color for better separation */
-}
-
-/* Style for course names (links) on hover */
-.custom-card a:hover {
-    background-color: #00498e; /* Darker blue background color on hover */
-}
-
-/* Style for the Bootstrap cards in the testimonials section */
 .testimonial-card {
-    background-color: #00498e; /* Darker blue background color for the testimonial cards */
-    color: #fff; /* White text color for the testimonial card content */
-    border: 1px solid #002f5b; /* Darker blue border color for the testimonial cards */
-    border-radius: 10px; /* Rounded corners for a modern look */
-    margin-bottom: 20px; /* Margin at the bottom of each card */
-    padding: 20px; /* Add padding to the card body */
+    background-color: #00498e;
+    color: #fff;
+    border: 1px solid #002f5b;
 }
 
 .testimonial-card img {
-    max-width: 100px; /* Limit the maximum width of the images */
-    border-radius: 50%; /* Make the images circular */
+    max-width: 100px;
+    border-radius: 50%;
 }
 
-.testimonial-card h5 {
-    color: #fff; /* White color for card titles in the testimonials section */
-    margin-bottom: 10px; /* Margin at the bottom of the title */
+/* Main Container Styles */
+.main-container {
+    padding-top: 70px;
+    text-align: center;
 }
 
-/* Style for the footer */
+/* Footer Styles */
 .footer {
     text-align: center;
-    padding: 20px; /* Add padding for better spacing */
-    background-color: #002f5b; /* Darker blue background color for the footer */
-    color: #fff; /* White text color for better visibility */
+    padding: 20px;
+    background-color: #002f5b;
+    color: #fff;
 }
 
-/* Style for buttons */
+/* Button Styles */
 .btn {
-    background-color: #ffd700; /* Yellow background color for buttons */
-    color: #002f5b; /* Dark blue text color for buttons */
-    padding: 10px 20px; /* Adjust padding for better button size */
-    border: none; /* Remove the border */
-    border-radius: 5px; /* Add a slight border radius for a modern look */
-    cursor: pointer; /* Change cursor on hover for better user interaction */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/* Style for the primary button */
 .btn-primary {
-    background-color: #ffd700; /* Yellow background color for primary buttons */
-    color: #002f5b; /* Dark blue text color for primary buttons */
+    background-color: #ffd700;
+    color: #002f5b;
+    transition: background-color 0.3s ease;
 }
 
-/* Style for the danger button (e.g., delete button) */
+.btn-primary:hover {
+    background-color: #ffc107;
+}
+
 .btn-danger {
-    background-color: #dc3545; /* Red background color for danger buttons */
-    color: #fff; /* White text color for danger buttons */
+    background-color: #dc3545;
+    color: #fff;
+    transition: background-color 0.3s ease;
 }
 
-/* Style for the form container */
+.btn-danger:hover {
+    background-color: #bd2130;
+}
+
+/* Form Styles */
 .form-container {
-    background-color: #fff; /* White background color for the form container */
-    border-radius: 10px; /* Add rounded corners for a modern look */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
-    padding: 20px; /* Add padding for better spacing */
-    max-width: 600px; /* Limit the maximum width of the form container */
-    margin: 0 auto; /* Center the form container on the page */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Style for form labels */
 .form-label {
     display: block;
     margin-bottom: 8px;
-    color: #fbfbfc; /* Dark blue text color for form labels */
+    color: #002f5b;
 }
 
-/* Style for form input fields */
 .form-input {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 16px;
-    border: 1px solid #ccc; /* Light gray border for form input fields */
-    border-radius: 5px; /* Add rounded corners for form input fields */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-    color: #002f5b; /* Dark blue text color for form input fields */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #002f5b;
 }
 
-/* Style for form groups to group labels and inputs together */
 .form-group {
     margin-bottom: 16px;
 }
 
-/* Style for form buttons */
 .form-btn {
-    background-color: #ffd700; /* Yellow background color for form buttons */
-    color: #002f5b; /* Dark blue text color for form buttons */
-    padding: 12px 20px; /* Adjust padding for better button size */
-    border: none;
-    border-radius: 5px; /* Add rounded corners for form buttons */
+    background-color: #ffd700;
+    color: #002f5b;
+    padding: 12px 20px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-btn:hover {
+    background-color: #ffc107;
+}
+
+/* Schedule List Styles */
+ul.schedule-list {
+    list-style: none;
+    padding: 0;
+}
+
+.schedule-item {
+    background-color: #0072c6;
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.schedule-item button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.schedule-item button:hover {
+    background-color: #bd2130;
+}
+
+/* Available Courses List Styles */
+ul.available-courses-list {
+    list-style: none;
+    padding: 0;
+}
+
+.available-courses-item {
+    background-color: #00498e;
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.available-courses-item button {
+    background-color: #ffd700;
+    color: #002f5b;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.available-courses-item button:hover {
+    background-color: #ffc107;
+}
+
+/* Staff Dashboard Styles */
+.staff-dashboard {
+    text-align: center; /* Center align the content */
+    padding: 20px; /* Add padding for better spacing */
+}
+
+.staff-dashboard h1 {
+    color: #ffffff; /* Adjust the heading color */
+    margin-bottom: 20px; /* Add space below the heading */
+}
+
+.custom-card {
+    border: 1px solid #ddd; /* Add a border for separation */
+    border-radius: 10px; /* Add rounded corners */
+    margin-bottom: 20px; /* Add space between cards */
+    padding: 20px; /* Add padding inside the card */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+.custom-card h5 {
+    color: #fafafa; /* Adjust the card title color */
+    font-size:larger; 
+}
+
+.custom-card p {
+    color: #ffffff; /* Adjust the paragraph text color */
+    margin-bottom: 10px; /* Add space between paragraphs */
+}
+
+/* Success Button Styles */
+.btn-success {
+    background-color: #28a745; /* Change the background color for success button */
+    color: #fff; /* Change the text color for success button */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Change the background color on hover for success button */
+}
+
+/* Danger Button Styles */
+.btn-danger {
+    background-color: #dc3545; /* Change the background color for danger button */
+    color: #fff; /* Change the text color for danger button */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Change the background color on hover for danger button */
+}
+
+.form-btn {
+    background-color: #ffd700;
+    color: #002f5b;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-btn:hover {
+    background-color: #ffc107;
+}
+
+.course-card {
+    background-color: #0072c6;
+    color: #002f5b;
+    border: 1px solid #c8ced3;
+}
+
+.course-card h5 {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.course-card-link {
+    text-decoration: none;
+}
+
+.course-card-link:hover {
+    text-decoration: none;
+}
+
+
+.course-card-title {
+    color: #fff; /* White text color */
+    font-size: 24px; /* Adjust the font size as needed */
+}
+
+.course-card-link {
+    text-decoration: none;
+}
+
+.course-card-link:hover {
+    text-decoration: none;
+}
+
+.course-details {
+    border: 1px solid #ddd; /* Add a border for separation */
+    border-radius: 10px; /* Add rounded corners */
+    margin-top: 20px; /* Add some space at the top */
+    padding: 20px; /* Add padding inside the card */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+.course-details h1 {
+    color: #ffffff; /* Adjust the heading text color */
+}
+
+.course-details p {
+    color: #ffffff; /* Adjust the paragraph text color */
+    margin-bottom: 10px; /* Add some space between paragraphs */
+}
+
+/* Course Creation Page Styles */
+.course-creation-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.course-creation-container h1 {
+    color: #002f5b;
+}
+
+.course-creation-container form {
+    margin-top: 20px;
+}
+
+.course-creation-container .form-label {
+    color: #002f5b;
+    margin-top: 20px;
+}
+
+.course-creation-container .form-control {
+    color: #002f5b;
+}
+
+.course-creation-container .btn-primary {
+    background-color: #ffd700;
+    color: #002f5b;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.course-creation-container .btn-primary:hover {
+    background-color: #ffc107;
+}
+
+
+/* Style the right-side list */
+.ml-auto {
+    list-style: none;
+    display: flex;
+    align-items: center; /* Vertically center the items */
+}
+
+.ml-auto li {
+    margin-left: 15px; /* Adjust the spacing between items as needed */
+}
+
+/* Optionally, you can add hover effects */
+.ml-auto a:hover {
+    text-decoration: underline;
 }
