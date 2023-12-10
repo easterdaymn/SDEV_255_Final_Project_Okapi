@@ -1,16 +1,75 @@
 <html lang="en">
-    <%- include('./partials/head.ejs') %> 
+  <%- include('./partials/header.ejs') %>
 
-<body>
- 
-    <%- include('./partials/nav.ejs') %>  
+  <body>
+    <%- include('./partials/nav.ejs') %>
 
-    <div>
-        <h1>Sign Up For Courses</h1>
-       
+    <script>
+      // Function to show a confirmation message
+      function showConfirmation(message) {
+        alert(message);
+      }
+
+      // Function to handle course submission
+      function handleCourseSubmission(courseId, isAlreadyInSchedule) {
+        const confirmationMessage = isAlreadyInSchedule
+          ? `Course ${courseId} is already in your schedule.`
+          : `Course ${courseId} added to your schedule.`;
+
+        showConfirmation(confirmationMessage);
+      }
+    </script>
+
+    <div class="container main-container" style="padding-top: 80px;">
+      <h1>Your Schedule</h1>
+      <!-- Display the courses in the user's schedule -->
+      <ul class="schedule-list">
+        <% if (user && user.schedule) { %>
+          <% user.schedule.forEach(scheduleId => { %>
+            <% const course = courses.find(course => course._id.equals(scheduleId)); %>
+            <!-- Log statements -->
+            <% console.log('Schedule ID:', scheduleId); %>
+            <% console.log('Found Course:', course); %>
+            <!-- Rendering logic -->
+            <% if (course) { %>
+              <li class="schedule-item">
+                <%= course.courseName %>
+                <form action="/students/drop" method="POST" onsubmit="showConfirmation('Course <%= course.courseName %> dropped from your schedule.');">
+                  <input type="hidden" name="courseId" value="<%= course._id %>">
+                  <button type="submit">Drop from Schedule</button>
+                </form>
+              </li>
+            <% } %>
+          <% }) %>
+        <% } else { %>
+          <li>No courses in the schedule</li>
+        <% } %>
+      </ul>
     </div>
 
-    <%- include('./partials/footer.ejs') %>
+    <!-- Display available courses for signup -->
+    <h2>Available Courses</h2>
+    <ul class="available-courses-list">
+      <% if (courses && courses.length > 0) { %>
+        <% courses.forEach(course => { %>
+          <li class="available-courses-item">
+            <%= course.courseName %> -
+            <%= course.description %> |
+            <form 
+              action="/students" 
+              method="POST"
+              onsubmit="handleConfirmation('<%= course._id %>', <%= (user && user.schedule && user.schedule.includes(course._id)) %>); return false;"
+            >
+              <input type="hidden" name="courseId" value="<%= course._id %>">
+              <button type="submit">Add to Schedule</button>
+            </form>
+          </li>
+        <% }) %>
+      <% } else { %>
+        <li>No available courses</li>
+      <% } %>
+    </ul>
 
-</body>
+    <%- include('./partials/footer.ejs') %>
+  </body>
 </html>
