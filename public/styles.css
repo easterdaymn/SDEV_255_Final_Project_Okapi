@@ -395,19 +395,3 @@ ul.available-courses-list {
     background-color: #ffc107;
 }
 
-
-/* Style the right-side list */
-.ml-auto {
-    list-style: none;
-    display: flex;
-    align-items: center; /* Vertically center the items */
-}
-
-.ml-auto li {
-    margin-left: 15px; /* Adjust the spacing between items as needed */
-}
-
-/* Optionally, you can add hover effects */
-.ml-auto a:hover {
-    text-decoration: underline;
-}
