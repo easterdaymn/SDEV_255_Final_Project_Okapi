@@ -1,0 +1,72 @@
+<%- include('partials/header'); -%>
+
+<form action="/login" method="post">
+  <h2>Login</h2>
+  <label for="email">Email</label>
+  <input type="text" name="email" />
+  <div class="email error"></div>
+  <label for="password">Password</label>
+  <input type="password" name="password" />
+  <div class="password error"></div>
+  <button>Login</button>
+</form>
+
+<%- include('partials/footer'); -%>
+
+<script>
+  const form = document.querySelector('form');
+  const emailError = document.querySelector('.email.error');
+  const passwordError = document.querySelector('.password.error');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Reset errors
+    emailError.textContent = '';
+    passwordError.textContent = '';
+
+    // Get values
+    const email = form.email.value;
+    const password = form.password.value;
+
+    try {
+      const res = await fetch('/login', {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await res.json();
+
+      if (data.errors) {
+        emailError.textContent = data.errors.email;
+        passwordError.textContent = data.errors.password;
+      }
+
+      if (data.user && data.user.token) {
+        const tokenParts = data.user.token.split('.');
+        
+        if (tokenParts.length === 3) {
+          const payload = JSON.parse(atob(tokenParts[1]));
+          const { role } = payload;
+
+          if (role === 'teacher') {
+            // Redirect to staff dashboard
+            location.assign('/staff');
+          } else if (role === 'student') {
+            // Redirect to students page
+            location.assign('/students');
+          } else {
+            // Handle unknown role
+            console.error('Unknown role:', role);
+          }
+        } else {
+          console.error('Invalid token format');
+        }
+      } else {
+        console.error('Token not available in the response');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  });
+</script>
