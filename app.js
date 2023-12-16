@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const morgan = require('morgan');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -13,6 +14,12 @@ const authMiddleware = require('./middleware/authMiddleware');
 // express app
 const app = express();
 const port = 8000;
+
+app.use(session({
+  secret: 'okapifinalproject',
+  resave: false,
+  saveUninitialized: true,
+}));
 
 // Middleware to parse incoming request bodies
 app.use(express.urlencoded({ extended: true }));
@@ -34,6 +41,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
 app.use(authRoutes);
 app.use(scheduleRoutes);
+
+app.use(async (req, res, next) => {
+  const userId = req.session.userId;
+
+  if (userId) {
+    try {
+      const user = await User.findById(userId);
+      if (user) {
+        req.user = user; // Attach user data to the request object
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  }
+
+  next();
+});
 
 // Route to render the index page
 app.get('/', (req, res) => {
@@ -133,17 +157,19 @@ app.post('/students/drop', authMiddleware.requireAuth, async (req, res) => {
 
 // Route to render the staff dashboard
 app.get('/staff', authMiddleware.requireAuth, (req, res) => {
-  if (req.user.role === 'teacher') {
+  const { role } = req.user;
+
+  if (role === 'teacher') {
     Course.find()
       .then(courses => {
         res.render('staff', { title: 'Staff', courses });
       })
       .catch(err => {
-        console.log(err);
+        console.error(err);
         res.status(500).send('Internal Server Error');
       });
   } else {
-    res.status(403).send('Forbidden: Students cannot access the staff dashboard.');
+    res.status(403).send('Forbidden: Access denied for non-teachers.');
   }
 });
 
