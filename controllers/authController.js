@@ -80,6 +80,14 @@ module.exports.login_post = async (req, res) => {
   try {
     const user = await User.login(email, password);
 
+     // Store relevant user information in the session
+     req.session.user = {
+      _id: user._id,
+      role: user.role,
+      firstName: user.firstName,
+      lastName: user.lastName,
+    };
+
     // Log user and token for debugging
     console.log('User logged in:', user);
     const token = createToken(user._id, user.role, user.firstName, user.lastName);
@@ -96,4 +104,5 @@ module.exports.logout_get = (req, res) => {
   res.cookie('jwt', '', { maxAge: 1 });
   res.redirect('/');
 }
+
 
