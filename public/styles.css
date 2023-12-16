@@ -103,19 +103,10 @@ nav a.btn:hover {
     text-align: center;
 }
 
-/* Footer Styles */
-.footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #002f5b;
-    color: #fff;
-}
-
 /* Button Styles */
 .btn {
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -201,9 +192,8 @@ ul.schedule-list {
 
 .schedule-item button {
     background-color: #dc3545;
-    color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: none;
     padding: 8px;
     cursor: pointer;
 }
@@ -244,53 +234,53 @@ ul.available-courses-list {
 
 /* Staff Dashboard Styles */
 .staff-dashboard {
-    text-align: center; /* Center align the content */
-    padding: 20px; /* Add padding for better spacing */
+    text-align: center;
+    padding: 20px;
 }
 
 .staff-dashboard h1 {
-    color: #ffffff; /* Adjust the heading color */
-    margin-bottom: 20px; /* Add space below the heading */
+    color: #ffffff;
+    margin-bottom: 20px;
 }
 
 .custom-card {
-    border: 1px solid #ddd; /* Add a border for separation */
-    border-radius: 10px; /* Add rounded corners */
-    margin-bottom: 20px; /* Add space between cards */
-    padding: 20px; /* Add padding inside the card */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .custom-card h5 {
-    color: #fafafa; /* Adjust the card title color */
-    font-size:larger; 
+    color: #fafafa;
+    font-size: larger;
 }
 
 .custom-card p {
-    color: #ffffff; /* Adjust the paragraph text color */
-    margin-bottom: 10px; /* Add space between paragraphs */
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 /* Success Button Styles */
 .btn-success {
-    background-color: #28a745; /* Change the background color for success button */
-    color: #fff; /* Change the text color for success button */
+    background-color: #28a745;
+    color: #fff;
 }
 
 .btn-success:hover {
-    background-color: #218838; /* Change the background color on hover for success button */
+    background-color: #218838;
 }
 
 /* Danger Button Styles */
 .btn-danger {
-    background-color: #dc3545; /* Change the background color for danger button */
-    color: #fff; /* Change the text color for danger button */
+    background-color: #dc3545;
+    color: #fff;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 .btn-danger:hover {
-    background-color: #c82333; /* Change the background color on hover for danger button */
+    background-color: #c82333;
 }
 
 .form-btn {
@@ -308,88 +298,77 @@ ul.available-courses-list {
 
 .course-card {
     background-color: #0072c6;
-    color: #002f5b;
-    border: 1px solid #c8ced3;
 }
 
-.course-card h5 {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.course-card-link {
-    text-decoration: none;
-}
-
-.course-card-link:hover {
-    text-decoration: none;
-}
-
-
-.course-card-title {
-    color: #fff; /* White text color */
-    font-size: 24px; /* Adjust the font size as needed */
-}
-
-.course-card-link {
-    text-decoration: none;
-}
-
-.course-card-link:hover {
-    text-decoration: none;
-}
-
-.course-details {
-    border: 1px solid #ddd; /* Add a border for separation */
-    border-radius: 10px; /* Add rounded corners */
-    margin-top: 20px; /* Add some space at the top */
-    padding: 20px; /* Add padding inside the card */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-}
-
-.course-details h1 {
-    color: #ffffff; /* Adjust the heading text color */
-}
-
-.course-details p {
-    color: #ffffff; /* Adjust the paragraph text color */
-    margin-bottom: 10px; /* Add some space between paragraphs */
-}
-
-/* Course Creation Page Styles */
-.course-creation-container {
+/* Form Container Styles */
+form {
+    max-width: 400px;
+    margin: 0 auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
-    margin-top: 20px;
 }
 
-.course-creation-container h1 {
+/* Form Title Styles */
+form h2 {
+    color: #002f5b;
+    margin-bottom: 20px;
+}
+
+/* Label Styles */
+label {
+    display: block;
+    margin-bottom: 8px;
     color: #002f5b;
 }
 
-.course-creation-container form {
-    margin-top: 20px;
-}
-
-.course-creation-container .form-label {
-    color: #002f5b;
-    margin-top: 20px;
-}
-
-.course-creation-container .form-control {
+/* Input Styles */
+input, select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
     color: #002f5b;
 }
 
-.course-creation-container .btn-primary {
+/* Error Message Styles */
+.error {
+    color: #dc3545;
+    margin-top: 5px;
+}
+
+/* Button Styles */
+button {
     background-color: #ffd700;
     color: #002f5b;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 20px;
 }
+
+button:hover {
+    background-color: #ffc107;
+}
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #002f5b;
+    color: #fff;
+}
+
+.button-no-bg {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
 
 .course-creation-container .btn-primary:hover {
     background-color: #ffc107;
