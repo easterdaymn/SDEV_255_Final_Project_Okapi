@@ -22,7 +22,7 @@
         <p class="custom-card-text"><%= course.description %></p>
 
         <!-- Delete button -->
-        <form action="/staff/courses/delete/<%= course._id %>" method="POST" onsubmit="handleDelete('<%= course._id %>'); return false;">
+        <form action="/staff/courses/delete/<%= course._id %>" method="POST" onsubmit="handleDelete('<%= course._id %>'); return false;" class="button-no-bg">
           <!-- Use the DELETE method directly without method override -->
           <input type="hidden" name="_method" value="DELETE">
           <button type="submit" class="btn btn-danger">Delete</button>
