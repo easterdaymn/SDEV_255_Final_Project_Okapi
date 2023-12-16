@@ -5,19 +5,25 @@
     <%- include('./partials/nav.ejs') %>
 
     <script>
-      // Function to show a confirmation message
-      function showConfirmation(message) {
-        alert(message);
-      }
-
       // Function to handle course submission
       function handleCourseSubmission(courseId, isAlreadyInSchedule) {
-        const confirmationMessage = isAlreadyInSchedule
-          ? `Course ${courseId} is already in your schedule.`
-          : `Course ${courseId} added to your schedule.`;
+  console.log('Handling submission for Course ID:', courseId);
+  console.log('Is already in schedule:', isAlreadyInSchedule);
 
-        showConfirmation(confirmationMessage);
-      }
+  if (!isAlreadyInSchedule) {
+    // Assuming you have a function to make an asynchronous request to add the course to the schedule
+    // Modify this part based on your actual implementation
+    addToSchedule(courseId)
+      .then(function () {
+        showConfirmation(`Course ${courseId} added to your schedule.`);
+      })
+      .catch(function (error) {
+        console.error('Error adding course to schedule:', error);
+      });
+  } else {
+    showConfirmation(`Course ${courseId} is already in your schedule.`);
+  }
+}
     </script>
 
     <div class="container main-container" style="padding-top: 80px;">
@@ -36,7 +42,7 @@
                 <%= course.courseName %>
                 <form action="/students/drop" method="POST" onsubmit="showConfirmation('Course <%= course.courseName %> dropped from your schedule.');">
                   <input type="hidden" name="courseId" value="<%= course._id %>">
-                  <button type="submit">Drop from Schedule</button>
+                  <button type="submit" class="button-no-bg">Drop from Schedule</button>
                 </form>
               </li>
             <% } %>
@@ -47,28 +53,33 @@
       </ul>
     </div>
 
-    <!-- Display available courses for signup -->
-    <h2>Available Courses</h2>
-    <ul class="available-courses-list">
-      <% if (courses && courses.length > 0) { %>
-        <% courses.forEach(course => { %>
-          <li class="available-courses-item">
-            <%= course.courseName %> -
-            <%= course.description %> |
-            <form 
-              action="/students" 
-              method="POST"
-              onsubmit="handleConfirmation('<%= course._id %>', <%= (user && user.schedule && user.schedule.includes(course._id)) %>); return false;"
-            >
-              <input type="hidden" name="courseId" value="<%= course._id %>">
-              <button type="submit">Add to Schedule</button>
-            </form>
-          </li>
-        <% }) %>
-      <% } else { %>
-        <li>No available courses</li>
-      <% } %>
-    </ul>
+   <!-- Display available courses for signup -->
+<h2>Available Courses</h2>
+<ul class="available-courses-list">
+  <% console.log('Courses:', courses); %>
+  <% if (courses && courses.length > 0) { %>
+    <% courses.forEach(course => { %>
+      <li class="available-courses-item">
+        <%= course.courseName %> -
+        <%= course.description %> |
+        <form 
+          action="/students" 
+          method="POST"
+          onsubmit="handleCourseSubmission('<%= course._id %>', <%= (user && user.schedule && user.schedule.includes(course._id)) %>); return false;"
+        >
+          <input type="hidden" name="courseId" value="<%= course._id %>">
+          <button type="submit" class="button-no-bg">Add to Schedule</button>
+        </form>
+      </li>
+    <% }) %>
+  <% } else { %>
+    <li>No available courses</li>
+  <% } %>
+</ul>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>
 
     <%- include('./partials/footer.ejs') %>
   </body>
